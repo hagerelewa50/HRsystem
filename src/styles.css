@@ -1,1 +1,119 @@
-/* You can add global styles to this file, and also import other style files */
+
+:root{
+    --color:#ee9482;
+    --scolor:#db5a41;
+  
+  }
+
+.active-link{
+    color: var(--color) !important;
+}
+
+
+  .bg-main{
+    background-color:var(--color);
+  }
+
+  .bg-sec{
+    background-color:var(--scolor);
+  }
+  .text-main{
+    color: var(--color);
+  }
+  .sec-text{
+    color: var(--scolor);
+  }
+  .cursor-pointer{
+    cursor: pointer;
+  
+  }
+  
+  a{
+    text-decoration: none !important;
+  }
+  a:hover{
+    color: black;
+  }
+ 
+
+  .icon{
+    background-color: #eb8a77;
+    display: inline-block;
+    position: relative;
+    top: 5px;
+    right: 50px;
+    transition: box-shadow 0.2s ease;
+}
+
+.icon:hover{
+    box-shadow: 0 0 0px rgba(10, 10, 10, .5);
+}
+
+.lid{
+    position: absolute;
+    bottom: 16px;
+    left: 24px;
+    width: 25px;
+    height: 6px;
+}
+
+
+.lidcap{
+    position: absolute;
+    bottom: 22px;
+    left: 33px;
+    height: 4px;
+    width: 7px;
+}
+
+.lid,
+.lidcap{
+    border-top-left-radius: 23.8px;
+    border-top-right-radius: 23.8px;
+    background: #b31515;
+    transition: transform 0.2s linear, margin 0.2s linear;
+}
+
+.icon:hover .lid,
+.icon:hover .lidcap {
+    transform: rotateX(14deg);
+    margin-bottom: 3.5px;
+}
+.icon-edit{
+  transition: all 0.5s;
+}
+.icon-edit:hover{
+  scale: 1.3;
+}
+
+.bin{
+    position: absolute;
+    bottom: 0;
+    left: 28px;
+    width: 18px;
+    border-top: 16px solid #b31515;
+    border-left: 2px solid transparent;
+    border-right: 2px solid transparent;
+}
+
+.c {
+    position: absolute;
+    border-radius: 0px;
+    width: 2px;
+    background-color: #fff;
+    height: 11px;
+    bottom: 3px;
+}
+
+.c.cut1{
+    left: 9px;
+    transform: rotate(5deg);
+}
+
+.c.cut2{
+    right: 9px;
+    transform: rotate(-5deg);
+}
+
+ 
+  

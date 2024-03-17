@@ -1,0 +1,44 @@
+<div class="row">
+    <div class="col-8">
+        <h2 class="text-main">Login</h2>
+        <form [formGroup]="loginform" (ngSubmit)="handleSubmit()" class="pt-3">
+         
+
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" 
+                class="form-control" 
+                id="email" 
+                formControlName="email">
+              </div>
+              <div class="alert-danger alert py-2  mt-1" *ngIf="loginform.get('email')?.errors && loginform.get('email')?.touched">
+                <p *ngIf="loginform.get('email')?.getError('required')" class="mb-0">Email ia Required</p>
+                <p *ngIf="loginform.get('email')?.getError('email')" class="mb-0">Email is Invalid</p>
+              </div>
+
+
+              <div class="mb-3">
+                <label for="Password" class="form-label">Password</label>
+                <input type="password" 
+                class="form-control" 
+                id="Password" 
+                formControlName="password">
+              </div>
+              <div class="alert-danger alert py-2  mt-1" *ngIf="loginform.get('password')?.errors && loginform.get('password')?.touched">
+                <p *ngIf="loginform.get('password')?.getError('required')" class="mb-0">password ia Required</p>
+                <p *ngIf="loginform.get('password')?.getError('pattern')" class="mb-0">Password must be contain capital and small letters</p>
+              </div>
+
+       
+
+              <div class="alert alert-danger py-2" *ngIf="ErrMsg">{{ErrMsg}}</div>
+
+
+
+            <button [disabled]="loginform.invalid" class=" btn bg-main text-white">   
+                <i *ngIf="isloading" class="fas fa-spinner fa-spin"></i> login </button>
+
+        </form>
+    </div>
+</div>
+
