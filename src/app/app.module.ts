@@ -16,9 +16,12 @@ import { EmployeeReportsComponent } from './components/employee-reports/employee
 import { NavauthComponent } from './components/navauth/navauth.component';
 import { BlanklayoutComponent } from './blanklayout/blanklayout.component';
 import { AuthlayoutComponent } from './authlayout/authlayout.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {  HttpClientModule } from '@angular/common/http';
 import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule, } from 'ngx-toastr';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,11 @@ import { AddEmployeeComponent } from './components/add-employee/add-employee.com
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule,
+    BrowserAnimationsModule, 
+    ToastrModule.forRoot(),
+          
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -18,6 +18,7 @@ const routes: Routes = [
     {path:"", redirectTo:"employees",pathMatch:"full"},
     {path:"employees", component:EmployeesComponent},
     {path:"addemloyee", component:AddEmployeeComponent},
+    {path:"editemloyee", component:AddEmployeeComponent},
     {path:"attendence", component:AttendanceComponent},
     {path:"vacation", component:VacationComponent},
     {path:"publicsetting", component:PublicSettingsComponent},

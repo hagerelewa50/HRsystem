@@ -61,7 +61,7 @@
               </div>
               <div class="alert-danger alert py-2  mt-1" *ngIf="registerform.get('phone')?.errors && registerform.get('phone')?.touched">
                 <p *ngIf="registerform.get('phone')?.getError('required')" class="mb-0">phone ia Required</p>
-                <p *ngIf="registerform.get('phone')?.getError('pattern')" class="mb-0">phone must be contain capital and small letters</p>
+                <p *ngIf="registerform.get('phone')?.getError('pattern')" class="mb-0">phone must be 14 Numbers</p>
               </div>
 
               <div class="alert alert-danger py-2" *ngIf="ErrMsg">{{ErrMsg}}</div>

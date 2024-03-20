@@ -2,50 +2,101 @@
 <h3>Add Employee</h3>
 
 
-   <form action="" class="mt-4">
+   <form  class="mt-4" [formGroup]="addemployees"  (ngSubmit)="submit()">
     <div class="row  gy-4">
         <div class="col-lg-6">
             <h4>Personal Info</h4>
     
             <div class="mb-3">
                 <label class="col-3" for="name">Name: </label>
-                <input type="text"  class="form-control  w-75">
+                <input type="text"  class="form-control  w-75" name="name" formControlName="employeeName" >
+
+                <div class="text-danger" *ngIf="addemployees.get('employeeName')?.errors && addemployees.get('employeeName')?.touched">
+                    <p *ngIf="addemployees.get('employeeName')?.getError('required')" class="mb-0">Name ia Required</p>
+                    <p *ngIf="addemployees.get('employeeName')?.getError('minlength')" class="mb-0">Minlength is 3 letters</p>
+                    <p *ngIf="addemployees.get('employeeName')?.getError('maxlength')" class="mb-0">maxlength is 20 letters</p>
+                  </div>
             </div>
-    
+
             <div class="mb-3">
-                <label class="col-3" for="Address">Address: </label>
-                <input type="text"  class="form-control  w-75">
+                <label class="col-3" for="address">Address: </label>
+                <input type="text"  class="form-control  w-75" name="address" formControlName="address" >
+
+                <div class="text-danger" *ngIf="addemployees.get('address')?.errors && addemployees.get('address')?.touched">
+                    <p *ngIf="addemployees.get('address')?.getError('required')" class="mb-0">Name ia Required</p>
+                    <p *ngIf="addemployees.get('address')?.getError('minlength')" class="mb-0">Minlength is 3 letters</p>
+                    <p *ngIf="addemployees.get('address')?.getError('maxlength')" class="mb-0">maxlength is 20 letters</p>
+                  </div>
             </div>
-    
-            
+
             <div class="mb-3">
-                <label class="col-3" for="phone">Phone Number : </label>
-                <input type="tel"  class="form-control  w-75">
+                <label class="col-3" for="nationality">Nationality: </label>
+                <input type="text"  class="form-control  w-75" name="nationality" formControlName="nationality" >
+
+                <div class="text-danger" *ngIf="addemployees.get('nationality')?.errors && addemployees.get('nationality')?.touched">
+                    <p *ngIf="addemployees.get('nationality')?.getError('required')" class="mb-0">Name ia Required</p>
+                    <p *ngIf="addemployees.get('nationality')?.getError('minlength')" class="mb-0">Minlength is 3 letters</p>
+                    <p *ngIf="addemployees.get('nationality')?.getError('maxlength')" class="mb-0">maxlength is 20 letters</p>
+                  </div>
             </div>
-    
+
             <div class="mb-3">
-                <p class="mb-1">Gender : </p>
-                <label for="male" class="me-1">Male</label>
-                <input type="radio" id="male" name="gender" value="male" class=" me-2">
-            
-                <label for="female" class="me-1">Female</label>
-                <input type="radio" id="female" name="gender" value="female">
+                <label class="col-3" for="nationalID">NationalID: </label>
+                <input type="text"  class="form-control  w-75" name="nationalID" formControlName="nationalID" >
+
+                <div class="text-danger" *ngIf="addemployees.get('nationalID')?.errors && addemployees.get('nationalID')?.touched">
+                    <p *ngIf="addemployees.get('nationalID')?.getError('required')" class="mb-0">NationalID ia Required</p>
+                    <p *ngIf="addemployees.get('nationalID')?.getError('pattern')" class="mb-0">NationalID must be 14 Numbers</p>
+                  </div>
             </div>
-    
-            <div class="mb-3">
-                <label class="col-2" for="Nationality">Nationality: </label>
-                <input type="text"  class="form-control  w-75">
-            </div>
-    
+
             <div class="mb-3">
                 <label class="col-3" for="birth">Date of Birth: </label>
-                <input type="date"  class="form-control  w-75">
+                <input type="date"  class="form-control  w-75" name="birth" formControlName="dateOfBirth" >
+
+                <div class="text-danger" *ngIf="addemployees.get('dateOfBirth')?.errors && addemployees.get('dateOfBirth')?.touched">
+                    <p *ngIf="addemployees.get('dateOfBirth')?.getError('required')" class="mb-0">dateOfBirth ia Required</p>
+                  
+                  </div>
+                  <div class="text-danger" *ngIf="addemployees.get('dateOfBirth')?.touched && addemployees.errors?.['dateOfBirthHiringDate']">
+                    Date of Birth must be at least 20 years before Hiring Date.
+                  </div>
             </div>
-    
+
+
             <div class="mb-3">
-                <label class="col-3" for="nationalid">National ID : </label>
-                <input type="tel"  class="form-control  w-75">
+                <label for="phone" class="form-label">Phone</label>
+                <input type="tel" 
+                class="form-control w-75" 
+                id="phone" 
+                formControlName="phone">
+
+                <div class="text-danger" *ngIf="addemployees.get('phone')?.errors && addemployees.get('phone')?.touched">
+                    <p *ngIf="addemployees.get('phone')?.getError('required')" class="mb-0">Phone ia Required</p>
+                    <p *ngIf="addemployees.get('phone')?.getError('pattern')" class="mb-0">Phone must be 14 Numbers and start with 010 011 012</p>
+                </div>
+
             </div>
+            
+            <div class="mb-3">
+                <p class="mb-1">Gender:</p>
+                <label for="male" class="me-1">Male</label>
+                <input type="radio" id="male" formControlName="gender" value="M" class="me-2">
+                
+                <label for="female" class="me-1">Female</label>
+                <input type="radio" id="female" formControlName="gender" value="F">
+
+                <div class="text-danger" *ngIf="addemployees.get('gender')?.errors && addemployees.get('gender')?.touched">
+                    <p *ngIf="addemployees.get('gender')?.getError('required')" class="mb-0">Gender ia Required</p>
+
+                </div>
+
+              </div>
+    
+          
+    
+           
+            
     
     
           
@@ -54,32 +105,67 @@
     
         <div class="col-lg-6 ">
             <h4>Working Info</h4>
-    
-            <div class="mb-3">
-                <label class="col-3" for="doc">Date of Contract : </label>
-                <input type="date"  class="form-control  w-75">
+
+              <div class="mb-3">
+                <label class="col-3" for="department">Department: </label>
+                <input type="text"  class="form-control  w-75" name="department" formControlName="department" >
+
+                <div class="text-danger" *ngIf="addemployees.get('department')?.errors && addemployees.get('department')?.touched">
+                    <p *ngIf="addemployees.get('department')?.getError('required')" class="mb-0">Department ia Required</p>
+                    <p *ngIf="addemployees.get('department')?.getError('minlength')" class="mb-0">Minlength is 5 letters</p>
+                    <p *ngIf="addemployees.get('department')?.getError('maxlength')" class="mb-0">maxlength is 50 letters</p>
+                  </div>
             </div>
     
-           
-    
+
+
             <div class="mb-3">
-                <label class="col-3" for="salary">salary : </label>
-                <input type="number"  class="form-control  w-75">
+                <label class="col-3" for="hire">Date of Hiring: </label>
+                <input type="date"  class="form-control  w-75" name="hire" formControlName="hiringDate" >
+
+                <div class="text-danger" *ngIf="addemployees.get('hiringDate')?.errors && addemployees.get('hiringDate')?.touched">
+                    <p *ngIf="addemployees.get('hiringDate')?.getError('required')" class="mb-0">hiringDate ia Required</p>
+                </div>
+                <div class="text-danger" *ngIf="addemployees.get('hiringDate')?.touched && addemployees.errors?.['dateOfBirthHiringDate']">
+                    Date of Birth must be at least 20 years before Hiring Date.
+                  </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="salary" class="form-label">Salary:</label>
+                <input type="number" 
+                class="form-control w-75" 
+                name="salary" 
+                formControlName="salary">
+
+                <div class="text-danger" *ngIf="addemployees.get('salary')?.errors && addemployees.get('salary')?.touched">
+                    <p *ngIf="addemployees.get('salary')?.getError('required')" class="mb-0">salary ia Required</p>
+            
+                </div>
+
+            </div>
+
+            <div class="mb-3">
+                <label for="vacationsCredit" class="form-label">vacationsCredit:</label>
+                <input type="number" 
+                class="form-control w-75" 
+                name="vacationsCredit" 
+                formControlName="vacationsCredit">
+
+                <div class="text-danger" *ngIf="addemployees.get('vacationsCredit')?.errors && addemployees.get('vacationsCredit')?.touched">
+                    <p *ngIf="addemployees.get('vacationsCredit')?.getError('required')" class="mb-0">salary ia Required</p>
+                    
+                </div>
+
             </div>
     
-            <div class="mb-3">
-                <label class="col-3" for="Attendance-Time">Attendance Time : </label>
-                <input type="time"  class="form-control  w-75">
-            </div>
-            <div class="mb-3">
-                <label class="col-3" for="Departure-date">Departure date : </label>
-                <input type="time"  class="form-control  w-75">
-            </div>
     
     
-        </div>
+        </div> 
     </div>
+
+    <div class="alert alert-danger py-2 col-5 text-center mx-auto" *ngIf="ErrMsgNatinalidExist">{{ErrMsgNatinalidExist}}</div>
   
-    <button class="btn btn-primary d-block ms-auto">Add</button>
+    <button [disabled]="addemployees.invalid" class="btn btn-primary d-block ms-auto">Add</button>
    </form>
 
