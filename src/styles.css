@@ -1,4 +1,6 @@
-
+*{
+  /* box-sizing: border-box; */
+}
 :root{
     --color:#FF407D;
     --scolor:#db5a41;

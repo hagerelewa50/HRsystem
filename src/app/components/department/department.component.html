@@ -1,0 +1,65 @@
+
+ <h3 class="text-center mb-5"> Department</h3>
+
+       
+           
+           
+<button (click)="GoToaddDepart()" class="btn btn-info text-white d-block mb-2 ms-auto">AddDepartment</button>
+
+            
+        
+       
+
+
+<div class="form-group has-search d-flex col-lg-4 mx-auto">
+                
+    <input type="text" class="form-control" placeholder="Search by Name or Department" > <span class="fa fa-search form-control-feedback"></span>
+   
+  </div>
+
+<!-- <input type="text"   placeholder="Search ....." class="form-control w-50 mx-auto my-4"> -->
+<div class="container">
+    <table class="table table-striped text-center mt-3">
+        <thead>
+            <tr>
+                <th>Department </th>
+                <th>WorkDays</th>
+                <th>DeductionRule </th>
+                <th>BonusRule</th>
+                <th>ComingTime </th>
+                <th>TimeToLeave</th>
+                <th>ManagerName</th>
+                <th>isHourly</th>
+                <th> Action </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let d of department">
+                <td class="text-capitalize">{{d.departmentName}}</td>
+                <td>{{d.workDays}}</td>
+                <td>{{d.deductionRule}}</td>
+                <td>{{d.bonusRule}}</td>
+                <td>{{d.comingTime}}</td>
+                <td>{{d.timeToLeave}}</td>
+                <td>{{d.managerName}}</td>
+                <td>{{d.isHourly}}</td>
+                <td>
+                    <div class="d-inline-block ">
+                    <i class="fa-solid fa-pen-to-square me-3 text-info fs-5 cursor-pointer me-3 icon-edit "></i>
+                    </div>
+                    <div class="con-icon d-inline-block cursor-pointer my-1 ms-4" (click)="deletdepartment(d.departmentName)">
+                        <div class="icon me-3">
+                            <div class="lid"></div>
+                            <div class="lidcap"></div>
+                            <div class="bin">
+                                <div class="c cut1"></div>
+                                <div class="c cut2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+    
+        </tbody>
+    </table>
+</div>

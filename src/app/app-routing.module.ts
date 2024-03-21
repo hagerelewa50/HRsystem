@@ -6,11 +6,12 @@ import { AuthlayoutComponent } from './authlayout/authlayout.component';
 import { AttendanceComponent } from './components/attendance/attendance.component';
 import { VacationComponent } from './components/vacation/vacation.component';
 import { PublicSettingsComponent } from './components/public-settings/public-settings.component';
-import { EmployeeReportsComponent } from './components/employee-reports/employee-reports.component';
+import { DepartmentComponent } from './components/department/department.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
+import { AddDepartmentComponent } from './components/add-department/add-department.component';
 
 const routes: Routes = [
   { path:"",component:BlanklayoutComponent ,
@@ -19,10 +20,12 @@ const routes: Routes = [
     {path:"employees", component:EmployeesComponent},
     {path:"addemloyee", component:AddEmployeeComponent},
     {path:"editemloyee", component:AddEmployeeComponent},
+    {path:"department", component:DepartmentComponent},
+    {path:"addDepart",component:AddDepartmentComponent},
+
     {path:"attendence", component:AttendanceComponent},
     {path:"vacation", component:VacationComponent},
     {path:"publicsetting", component:PublicSettingsComponent},
-    {path:"employeereports", component:EmployeeReportsComponent}
   ] },
 
   { path:"",

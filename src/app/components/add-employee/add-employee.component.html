@@ -17,7 +17,7 @@
                     <p *ngIf="addemployees.get('employeeName')?.getError('maxlength')" class="mb-0">maxlength is 20 letters</p>
                   </div>
             </div>
-
+            
             <div class="mb-3">
                 <label class="col-3" for="address">Address: </label>
                 <input type="text"  class="form-control  w-75" name="address" formControlName="address" >
@@ -124,7 +124,7 @@
                 <input type="date"  class="form-control  w-75" name="hire" formControlName="hiringDate" >
 
                 <div class="text-danger" *ngIf="addemployees.get('hiringDate')?.errors && addemployees.get('hiringDate')?.touched">
-                    <p *ngIf="addemployees.get('hiringDate')?.getError('required')" class="mb-0">hiringDate ia Required</p>
+                    <p *ngIf="addemployees.get('hiringDate')?.getError('required')" class="mb-0">HiringDate ia Required</p>
                 </div>
                 <div class="text-danger" *ngIf="addemployees.get('hiringDate')?.touched && addemployees.errors?.['dateOfBirthHiringDate']">
                     Date of Birth must be at least 20 years before Hiring Date.
@@ -153,7 +153,7 @@
                 formControlName="vacationsCredit">
 
                 <div class="text-danger" *ngIf="addemployees.get('vacationsCredit')?.errors && addemployees.get('vacationsCredit')?.touched">
-                    <p *ngIf="addemployees.get('vacationsCredit')?.getError('required')" class="mb-0">salary ia Required</p>
+                    <p *ngIf="addemployees.get('vacationsCredit')?.getError('required')" class="mb-0">VacationsCredit ia Required</p>
                     
                 </div>
 

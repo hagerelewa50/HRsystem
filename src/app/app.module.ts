@@ -12,7 +12,7 @@ import { EmployeesComponent } from './components/employees/employees.component';
 import { AttendanceComponent } from './components/attendance/attendance.component';
 import { VacationComponent } from './components/vacation/vacation.component';
 import { PublicSettingsComponent } from './components/public-settings/public-settings.component';
-import { EmployeeReportsComponent } from './components/employee-reports/employee-reports.component';
+import { DepartmentComponent} from './components/department/department.component';
 import { NavauthComponent } from './components/navauth/navauth.component';
 import { BlanklayoutComponent } from './blanklayout/blanklayout.component';
 import { AuthlayoutComponent } from './authlayout/authlayout.component';
@@ -22,6 +22,7 @@ import { AddEmployeeComponent } from './components/add-employee/add-employee.com
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule, } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
+import { AddDepartmentComponent } from './components/add-department/add-department.component';
 
 @NgModule({
   declarations: [
@@ -35,11 +36,12 @@ import { CommonModule } from '@angular/common';
     AttendanceComponent,
     VacationComponent,
     PublicSettingsComponent,
-    EmployeeReportsComponent,
+    DepartmentComponent,
     NavauthComponent,
     BlanklayoutComponent,
     AuthlayoutComponent,
-    AddEmployeeComponent
+    AddEmployeeComponent,
+    AddDepartmentComponent
   ],
   imports: [
     BrowserModule,

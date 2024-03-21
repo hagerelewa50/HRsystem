@@ -21,7 +21,6 @@ export class AddEmployeeComponent implements OnInit {
   constructor(private _EmployeeService:EmployeeService , public toastr:ToastrService ,  private router: Router,private _ActivatedRoute:ActivatedRoute){}
 
   ngOnInit(): void {
-    this.showSuccess()
     this.nationalid=this._ActivatedRoute.snapshot.queryParams["ID"]
     console.log(this.nationalid);
 
@@ -74,18 +73,13 @@ export class AddEmployeeComponent implements OnInit {
     return `${day}-${month}-${year}`;
   }
 
-  // this.addemployees.value.employeeName
-
-  showSuccess(){
-    console.log("nd");
-    
-    this.toastr.success('added successfully',"ghjhj", {
+  showSuccess(body:string , title:string){   
+    this.toastr.success( body ,title, {
    timeOut: 3000,
  });
    }
 
   submit(){
-
     const employeesvalue = {
       ...this.addemployees.value,
       dateOfBirth: this.formatDate(this.addemployees.value.dateOfBirth),
@@ -99,9 +93,9 @@ export class AddEmployeeComponent implements OnInit {
         next: (response: any) => {
           console.log(response);
           
-          // if (response.message === "Updated Successfully") {
-          //   this.showSuccess();
-          // }
+          if (response.message === "Updated Successfully") {
+            this.showSuccess(response.message , this.addemployees.value.employeeName);
+          }
         },
         error: (err: any) => {
           console.error('Error editing employee:', err);
@@ -113,11 +107,8 @@ export class AddEmployeeComponent implements OnInit {
       next: (response: HttpErrorResponse)=> {
 
         
-        
         if(response.message === "New Employee has been created"){
-          console.log("hello");
-
-          this.showSuccess()
+          this.showSuccess("added successfully",this.addemployees.value.employeeName)
         }
         console.log(response);
         
