@@ -14,8 +14,8 @@ export class EmployeeService {
   url = "http://localhost:5234/api/Employees"
 
 
-  getAllEmployee():Observable<any>{
-    return this._HttpClient.get("") 
+  getAllEmployee(pageIndex: number, pageSize: number):Observable<any>{
+    return this._HttpClient.get(`${this.url}?PageSize=${pageSize}&PageIndex=${pageIndex}`) 
   }
 
   getEmployeeById(nationalId:string):Observable<any>{

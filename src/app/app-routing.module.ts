@@ -22,7 +22,7 @@ const routes: Routes = [
     {path:"editemloyee", component:AddEmployeeComponent},
     {path:"department", component:DepartmentComponent},
     {path:"addDepart",component:AddDepartmentComponent},
-
+    {path:"editDepart",component:AddDepartmentComponent},
     {path:"attendence", component:AttendanceComponent},
     {path:"vacation", component:VacationComponent},
     {path:"publicsetting", component:PublicSettingsComponent},

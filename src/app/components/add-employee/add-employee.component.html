@@ -1,5 +1,5 @@
 
-<h3>Add Employee</h3>
+<h3>{{isEditing?"Update Employee ":"Add Employee"}}</h3>
 
 
    <form  class="mt-4" [formGroup]="addemployees"  (ngSubmit)="submit()">
@@ -166,6 +166,6 @@
 
     <div class="alert alert-danger py-2 col-5 text-center mx-auto" *ngIf="ErrMsgNatinalidExist">{{ErrMsgNatinalidExist}}</div>
   
-    <button [disabled]="addemployees.invalid" class="btn btn-primary d-block ms-auto">Add</button>
+    <button type="submit" class="btn btn-primary d-block ms-auto">{{isEditing?"Edit":"Add"}}</button>
    </form>
 

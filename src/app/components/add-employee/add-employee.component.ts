@@ -6,7 +6,6 @@ import {ToastrService} from 'ngx-toastr'
 import { ActivatedRoute, Router } from '@angular/router';
 import { dateOfBirthHiringDateValidator } from '../custom/cstomvalidation';
 
-
 @Component({
   selector: 'app-add-employee',
   templateUrl: './add-employee.component.html',
@@ -25,10 +24,8 @@ export class AddEmployeeComponent implements OnInit {
     console.log(this.nationalid);
 
     if (this.nationalid) {
-      // Fetch existing employee data based on national ID
       this._EmployeeService.getEmployeeById(this.nationalid).subscribe({
         next: (employeeData: any) => {
-          // Populate form fields with existing employee data
           this.addemployees.patchValue({
             employeeName: employeeData.employeeName,
             department: employeeData.department,
@@ -43,7 +40,7 @@ export class AddEmployeeComponent implements OnInit {
             hiringDate:this.formatDate( employeeData.hiringDate)
             
           });
-          this.isEditing = true; // Set isEditing flag to true
+          this.isEditing = true; 
         },
         error: (err:any) => {
           console.error('Error fetching employee data:', err);
@@ -79,54 +76,98 @@ export class AddEmployeeComponent implements OnInit {
  });
    }
 
-  submit(){
-    const employeesvalue = {
-      ...this.addemployees.value,
-      dateOfBirth: this.formatDate(this.addemployees.value.dateOfBirth),
-      hiringDate: this.formatDate(this.addemployees.value.hiringDate)
-    };
+  // submit(){
+  //   const employeesvalue = {
+  //     ...this.addemployees.value,
+  //     dateOfBirth: this.formatDate(this.addemployees.value.dateOfBirth),
+  //     hiringDate: this.formatDate(this.addemployees.value.hiringDate)
+  //   };
 
 
-    if (this.isEditing) {
-      // Edit existing employee
-      this._EmployeeService.editEmployee(this.nationalid, employeesvalue).subscribe({
-        next: (response: any) => {
-          console.log(response);
+  //   if (this.isEditing) {
+  //     // Edit existing employee
+  //     this._EmployeeService.editEmployee(this.nationalid, employeesvalue).subscribe({
+  //       next: (response: any) => {
+  //         console.log(response);
           
-          if (response.message === "Updated Successfully") {
-            this.showSuccess(response.message , this.addemployees.value.employeeName);
-          }
-        },
-        error: (err: any) => {
-          console.error('Error editing employee:', err);
-        }
-      });
-    }   else{
+  //         if (response.message === "Updated Successfully") {
+  //           this.showSuccess(response.message , this.addemployees.value.employeeName);
+  //         }
+  //       },
+  //       error: (err: any) => {
+  //         console.error('Error editing employee:', err);
+  //       }
+  //     });
+  //   }   else{
 
-    this._EmployeeService.addemlpoyee(employeesvalue).subscribe({
-      next: (response: HttpErrorResponse)=> {
+      
+
+  //   this._EmployeeService.addemlpoyee(employeesvalue).subscribe({
+  //     next: (response: HttpErrorResponse)=> {
 
         
-        if(response.message === "New Employee has been created"){
-          this.showSuccess("added successfully",this.addemployees.value.employeeName)
-        }
-        console.log(response);
+  //       if(response.message === "New Employee has been created"){
+  //         this.showSuccess("added successfully",this.addemployees.value.employeeName)
+  //       }
+  //       console.log(response);
         
         
         
-      },
-      error:(err:HttpErrorResponse)=> {
+  //     },
+  //     error:(err:HttpErrorResponse)=> {
 
-        this.ErrMsgNatinalidExist = err.error.message
+  //       this.ErrMsgNatinalidExist = err.error.message
 
-        console.log(err);
+  //       console.log(err);
         
-      },
-    })
-  }
+  //     },
+  //   })
+  // }
 
    
     
+  // }
+
+  submit() {
+   
+    if (this.addemployees.valid) {
+  
+      const employeeData = {
+        ...this.addemployees.value,
+        dateOfBirth: this.formatDate(this.addemployees.value.dateOfBirth),
+        hiringDate: this.formatDate(this.addemployees.value.hiringDate)
+      };
+  
+      if (this.isEditing) {
+    
+        this._EmployeeService.editEmployee(this.nationalid, employeeData).subscribe({
+          next: (response: any) => {
+            if (response.message === "Updated Successfully") {
+              this.showSuccess(response.message, this.addemployees.value.employeeName);
+            }
+          },
+          error: (err: any) => {
+            console.log( err);
+          }
+        });
+      } else {
+       
+        this._EmployeeService.addemlpoyee(employeeData).subscribe({
+          next: (response: HttpErrorResponse) => {
+            if (response.message === "New Employee has been created") {
+              this.showSuccess("Added successfully", this.addemployees.value.employeeName);
+            }
+          },
+          error: (err: HttpErrorResponse) => {
+            this.ErrMsgNatinalidExist = err.error.message;
+            console.log( err);
+          }
+        });
+      }
+    } else {
+    
+      this.addemployees.markAllAsTouched();
+    }
   }
   
 

@@ -1,4 +1,4 @@
-<h2>Add Department</h2>
+<h2>{{isEditing?"Edit Department":"Add Department"}}</h2>
 
 <form class="mt-4" [formGroup]="addDepartment" (submit)="onSubmit()">
     <div class="row">
@@ -54,12 +54,22 @@
                   </div>
             </div>
 
+           
+        </div>
+
+
+        <div class="col-lg-6">
+         
+
             <div class="mb-3">
                 <label class="col-3" for="comingTime">Coming Time: </label>
                 <input type="time" value="00:00:00" class="form-control  w-75" name="comingTime" formControlName="comingTime" >
 
                 <div class="text-danger" *ngIf="addDepartment.get('comingTime')?.errors && addDepartment.get('comingTime')?.touched">
                     <p *ngIf="addDepartment.get('comingTime')?.getError('required')" class="mb-0">ComingTime ia Required</p>
+                  </div>
+                  <div class="text-danger" *ngIf="addDepartment.get('comingTime')?.touched && addDepartment.errors?.['invalidTimeDifference']">
+                    comingTime must be at least 6 hours less than Leaving Time.
                   </div>
             </div>
             <div class="mb-3">
@@ -69,28 +79,23 @@
                 <div class="text-danger" *ngIf="addDepartment.get('timeToLeave')?.errors && addDepartment.get('timeToLeave')?.touched">
                     <p *ngIf="addDepartment.get('timeToLeave')?.getError('required')" class="mb-0">TimetoLeave ia Required</p>
                   </div>
+                  <div class="text-danger" *ngIf="addDepartment.get('timeToLeave')?.touched && addDepartment.errors?.['invalidTimeDifference']">
+                    comingTime must be at least 6 hours less than Leaving Time.
+                  </div>
             </div>
 
-         
-
-            <div class="mb-3">
-                <label class="col-3" for="isHourly">Is Hourly: </label>
-                <input type="checkbox"  class="form-check-input"  name="isHourly" formControlName="isHourly" >
-
-
-            </div>
 
             <div class="mb-3">
                 <label class="col-3" for="officialHoliday1">Official Holiday 1: </label>
                 <select class="form-select w-75" name="officialHoliday1" formControlName="officialHoliday1" (change)="test()">
                     <option [ngValue]="null" selected disabled>Select a holiday</option>
-                    <option value="7">Sunday</option>
+                    <!-- <option value="7">Sunday</option>
                     <option value="1">Monday</option>
                     <option value="2">Tuesday</option>
                     <option value="3">Wednesday</option>
-                    <option value="4">Thursday</option>
+                    <option value="4">Thursday</option> -->
                     <option value="5">Friday</option>
-                    <option value="6">Saturday</option>
+                    <!-- <option value="6">Saturday</option> -->
                 </select>
                 <div class="text-danger" *ngIf="addDepartment.get('officialHoliday1')?.errors && addDepartment.get('officialHoliday1')?.touched">
                     <p *ngIf="addDepartment.get('officialHoliday1')?.getError('required')" class="mb-0">OfficialHoliday1 ia Required</p>
@@ -101,21 +106,28 @@
                 <label class="col-3" for="officialHoliday2">Official Holiday 2: </label>
                 <select class="form-select w-75" name="officialHoliday2" formControlName="officialHoliday2"  (change)="test()">
                     <option [ngValue]="null" >No Holiday</option>
-                    <option value="7">Sunday</option>
+                    <!-- <option value="7">Sunday</option>
                     <option value="1">Monday</option>
                     <option value="2">Tuesday</option>
                     <option value="3">Wednesday</option>
-                    <option value="4">Thursday</option>
-                    <option value="5">Friday</option>
+                    <option value="4">Thursday</option> -->
+                    <!-- <option value="5">Friday</option> -->
                     <option value="6">Saturday</option>
                 </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="col-3" for="isHourly">Is Hourly: </label>
+                <input type="checkbox"  class="form-check-input"  name="isHourly" formControlName="isHourly" >
+
+
             </div>
 
        
             <div class="alert alert-danger py-2 d-inline-block px-3  text-center" *ngIf="ErrMsg">{{ErrMsg}}</div>
         
   
-    <button [disabled]="addDepartment.invalid"  class="btn btn-primary d-block ms-auto">Add</button>
+    <button [disabled]="addDepartment.invalid"  class="btn btn-primary d-block ms-auto">{{isEditing?"Edit":"Add"}}</button>
 
         </div>
 

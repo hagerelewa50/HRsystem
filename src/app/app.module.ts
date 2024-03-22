@@ -1,6 +1,6 @@
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
@@ -23,6 +23,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule, } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
 import { AddDepartmentComponent } from './components/add-department/add-department.component';
+import { RouterModule } from '@angular/router';
+// import {  MatPaginatorModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -46,11 +48,15 @@ import { AddDepartmentComponent } from './components/add-department/add-departme
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule,
+    MatPaginatorModule,
+    AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
     CommonModule,
     BrowserAnimationsModule, 
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot()
+ 
           
   ],
   providers: [],

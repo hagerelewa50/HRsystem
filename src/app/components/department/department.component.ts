@@ -40,6 +40,10 @@ export class DepartmentComponent implements OnInit {
     })
   }
 
+  editDepartment(departmentname:string){
+    this._Router.navigate(["/editDepart"],{queryParams: {ID:departmentname}})
+  }
+
 
   deletdepartment(name:string){
     this._DepartmentService.deleteDepartment(name).subscribe(()=>{
@@ -54,9 +58,7 @@ export class DepartmentComponent implements OnInit {
   }
 
 
-    // this.Dynamic.deletPosts(id).subscribe(()=>{
-    //   // this.Dynamic.getAllPosts().subscribe(p => this.posts = p)
-    // })
+    
  
 
 }

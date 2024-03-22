@@ -22,10 +22,13 @@ export class DepartmentService {
   addDepartment( workdays:number, data:IDepartment):Observable<any>{
     return this._HttpClient.post(`${this.url}/WorkDays?workDays=${workdays}` ,data)
   }
+  getdepartmentbyname(departname:string):Observable<any>{
+    return this._HttpClient.get(`${this.url}/${departname}`)
+  }
 
-  // editDepartment(nationalId:string,data:IDepartment):Observable<any>{
-  //   return this._HttpClient.put(`${this.url}/Edit/id?ID=${nationalId}`, data)
-  // }
+  editDepartment(departname:string,data:IDepartment):Observable<any>{
+    return this._HttpClient.put(`${this.url}/Edit/${departname}`, data)
+  }
 
   deleteDepartment (name:string):Observable<any>{
     return this._HttpClient.delete(`${this.url}/delete/${name}`)
