@@ -32,21 +32,20 @@ export class LoginComponent {
       
       this._AuthserviceService.setLogin(this.loginform.value).subscribe({
         next: (response)=>{
-         
 
-          if(response.message == "success"){
+          if(response.message == "succsess"){
+            localStorage.setItem("etoken" , response.token)
+            this._AuthserviceService.saveUserData()
+            
             this.isloading =false
             this._Router.navigate(["/employees"])
           }
           console.log(response);
-          
         },
         error:(err:HttpErrorResponse)=> {
       this.isloading =false
-
           this.ErrMsg = err.error.message
           console.log(err.error.message);
-          
         },
       })
 

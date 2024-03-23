@@ -2,17 +2,32 @@
     <div class="col-8">
         <h2 class="text-main">Register Now</h2>
         <form [formGroup]="registerform" (ngSubmit)="handleSubmit()" class="pt-3">
+
             <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
+                <label for="fullName" class="form-label">FullName</label>
                 <input type="text" 
                 class="form-control" 
-                id="name" 
-                formControlName="name">
+                id="fullName" 
+                formControlName="fullName">
               </div>
-              <div class="alert-danger alert py-2  mt-1" *ngIf="registerform.get('name')?.errors && registerform.get('name')?.touched">
-                <p *ngIf="registerform.get('name')?.getError('required')" class="mb-0">Name ia Required</p>
-                <p *ngIf="registerform.get('name')?.getError('minlength')" class="mb-0">Minlength is 3 letters</p>
-                <p *ngIf="registerform.get('name')?.getError('maxlength')" class="mb-0">maxlength is 3 letters</p>
+              <div class="alert-danger alert py-2  mt-1" *ngIf="registerform.get('fullName')?.errors && registerform.get('fullName')?.touched">
+                <p *ngIf="registerform.get('fullName')?.getError('required')" class="mb-0">fullName ia Required</p>
+                <p *ngIf="registerform.get('fullName')?.getError('minlength')" class="mb-0">Minlength is 3 letters</p>
+                <p *ngIf="registerform.get('fullName')?.getError('maxlength')" class="mb-0">maxlength is 50 letters</p>
+              </div>
+
+
+              <div class="mb-3">
+                <label for="userName" class="form-label">UserName</label>
+                <input type="text" 
+                class="form-control" 
+                id="userName" 
+                formControlName="userName">
+              </div>
+              <div class="alert-danger alert py-2  mt-1" *ngIf="registerform.get('userName')?.errors && registerform.get('userName')?.touched">
+                <p *ngIf="registerform.get('userName')?.getError('required')" class="mb-0">UserName ia Required</p>
+                <p *ngIf="registerform.get('userName')?.getError('minlength')" class="mb-0">Minlength is 3 letters</p>
+                <p *ngIf="registerform.get('userName')?.getError('maxlength')" class="mb-0">maxlength is 30 letters</p>
               </div>
 
               <div class="mb-3">
@@ -37,10 +52,10 @@
               </div>
               <div class="alert-danger alert py-2  mt-1" *ngIf="registerform.get('password')?.errors && registerform.get('password')?.touched">
                 <p *ngIf="registerform.get('password')?.getError('required')" class="mb-0">password ia Required</p>
-                <p *ngIf="registerform.get('password')?.getError('pattern')" class="mb-0">Password must be contain capital and small letters</p>
+                <p *ngIf="registerform.get('password')?.getError('pattern')" class="mb-0">Password must be start Capital letter and length 20</p>
               </div>
 
-              <div class="mb-3">
+              <!-- <div class="mb-3">
                 <label for="rePassword" class="form-label">rePassword</label>
                 <input type="password" 
                 class="form-control" 
@@ -50,19 +65,9 @@
               <div class="alert-danger alert py-2  mt-1" *ngIf="registerform.get('rePassword')?.errors && registerform.get('rePassword')?.touched">
                 <p *ngIf="registerform.get('rePassword')?.getError('required')" class="mb-0">repassword ia Required</p>
                 <p *ngIf="registerform.get('rePassword')?.getError('pattern')" class="mb-0">rePassword must be contain capital and small letters</p>
-              </div>
+              </div> -->
 
-              <div class="mb-3">
-                <label for="phone" class="form-label">Phone</label>
-                <input type="tel" 
-                class="form-control" 
-                id="phone" 
-                formControlName="phone">
-              </div>
-              <div class="alert-danger alert py-2  mt-1" *ngIf="registerform.get('phone')?.errors && registerform.get('phone')?.touched">
-                <p *ngIf="registerform.get('phone')?.getError('required')" class="mb-0">phone ia Required</p>
-                <p *ngIf="registerform.get('phone')?.getError('pattern')" class="mb-0">phone must be 14 Numbers</p>
-              </div>
+             
 
               <div class="alert alert-danger py-2" *ngIf="ErrMsg">{{ErrMsg}}</div>
 

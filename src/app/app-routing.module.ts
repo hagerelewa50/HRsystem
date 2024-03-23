@@ -12,9 +12,12 @@ import { LoginComponent } from './components/login/login.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
 import { AddDepartmentComponent } from './components/add-department/add-department.component';
+import { authGuard } from './shared/guard/auth.guard';
 
 const routes: Routes = [
-  { path:"",component:BlanklayoutComponent ,
+  { path:"",
+  canActivate:[authGuard],
+  component:BlanklayoutComponent ,
   children:[
     {path:"", redirectTo:"employees",pathMatch:"full"},
     {path:"employees", component:EmployeesComponent},
@@ -29,6 +32,7 @@ const routes: Routes = [
   ] },
 
   { path:"",
+ 
   component:AuthlayoutComponent ,
   children:[
     {path:"register" ,component:RegisterComponent},
