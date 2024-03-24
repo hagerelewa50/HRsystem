@@ -24,7 +24,9 @@ import { ToastrModule, } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
 import { AddDepartmentComponent } from './components/add-department/add-department.component';
 import { RouterModule } from '@angular/router';
+import { AddHolidayComponent } from './components/add-holiday/add-holiday.component';
 // import {  MatPaginatorModule } from '@angular/material';
+
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import { RouterModule } from '@angular/router';
     BlanklayoutComponent,
     AuthlayoutComponent,
     AddEmployeeComponent,
-    AddDepartmentComponent
+    AddDepartmentComponent,
+    AddHolidayComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +58,8 @@ import { RouterModule } from '@angular/router';
     HttpClientModule,
     CommonModule,
     BrowserAnimationsModule, 
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    FormsModule
  
           
   ],

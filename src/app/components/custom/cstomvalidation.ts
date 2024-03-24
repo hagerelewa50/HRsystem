@@ -4,6 +4,7 @@ export function dateOfBirthHiringDateValidator(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
     const dateOfBirthControl = control.get('dateOfBirth');
     const hiringDateControl = control.get('hiringDate');
+   
 
     if (dateOfBirthControl && hiringDateControl) {
       const dateOfBirth = new Date(dateOfBirthControl.value);

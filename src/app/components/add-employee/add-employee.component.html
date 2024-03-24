@@ -12,9 +12,9 @@
                 <input type="text"  class="form-control  w-75" name="name" formControlName="employeeName" >
 
                 <div class="text-danger" *ngIf="addemployees.get('employeeName')?.errors && addemployees.get('employeeName')?.touched">
-                    <p *ngIf="addemployees.get('employeeName')?.getError('required')" class="mb-0">Name ia Required</p>
+                    <p *ngIf="addemployees.get('employeeName')?.getError('required')" class="mb-0">Name is Required</p>
                     <p *ngIf="addemployees.get('employeeName')?.getError('minlength')" class="mb-0">Minlength is 3 letters</p>
-                    <p *ngIf="addemployees.get('employeeName')?.getError('maxlength')" class="mb-0">maxlength is 20 letters</p>
+                    <p *ngIf="addemployees.get('employeeName')?.getError('maxlength')" class="mb-0">Maxlength is 20 letters</p>
                   </div>
             </div>
             
