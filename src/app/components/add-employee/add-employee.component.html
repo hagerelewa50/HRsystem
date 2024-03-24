@@ -23,7 +23,7 @@
                 <input type="text"  class="form-control  w-75" name="address" formControlName="address" >
 
                 <div class="text-danger" *ngIf="addemployees.get('address')?.errors && addemployees.get('address')?.touched">
-                    <p *ngIf="addemployees.get('address')?.getError('required')" class="mb-0">Name ia Required</p>
+                    <p *ngIf="addemployees.get('address')?.getError('required')" class="mb-0">Name is Required</p>
                     <p *ngIf="addemployees.get('address')?.getError('minlength')" class="mb-0">Minlength is 3 letters</p>
                     <p *ngIf="addemployees.get('address')?.getError('maxlength')" class="mb-0">maxlength is 20 letters</p>
                   </div>
@@ -34,7 +34,7 @@
                 <input type="text"  class="form-control  w-75" name="nationality" formControlName="nationality" >
 
                 <div class="text-danger" *ngIf="addemployees.get('nationality')?.errors && addemployees.get('nationality')?.touched">
-                    <p *ngIf="addemployees.get('nationality')?.getError('required')" class="mb-0">Name ia Required</p>
+                    <p *ngIf="addemployees.get('nationality')?.getError('required')" class="mb-0">Name is Required</p>
                     <p *ngIf="addemployees.get('nationality')?.getError('minlength')" class="mb-0">Minlength is 3 letters</p>
                     <p *ngIf="addemployees.get('nationality')?.getError('maxlength')" class="mb-0">maxlength is 20 letters</p>
                   </div>
@@ -45,7 +45,7 @@
                 <input type="text"  class="form-control  w-75" name="nationalID" formControlName="nationalID" >
 
                 <div class="text-danger" *ngIf="addemployees.get('nationalID')?.errors && addemployees.get('nationalID')?.touched">
-                    <p *ngIf="addemployees.get('nationalID')?.getError('required')" class="mb-0">NationalID ia Required</p>
+                    <p *ngIf="addemployees.get('nationalID')?.getError('required')" class="mb-0">NationalID is Required</p>
                     <p *ngIf="addemployees.get('nationalID')?.getError('pattern')" class="mb-0">NationalID must be 14 Numbers</p>
                   </div>
             </div>
@@ -55,7 +55,7 @@
                 <input type="date"  class="form-control  w-75" name="birth" formControlName="dateOfBirth" >
 
                 <div class="text-danger" *ngIf="addemployees.get('dateOfBirth')?.errors && addemployees.get('dateOfBirth')?.touched">
-                    <p *ngIf="addemployees.get('dateOfBirth')?.getError('required')" class="mb-0">dateOfBirth ia Required</p>
+                    <p *ngIf="addemployees.get('dateOfBirth')?.getError('required')" class="mb-0">dateOfBirth is Required</p>
                   
                   </div>
                   <div class="text-danger" *ngIf="addemployees.get('dateOfBirth')?.touched && addemployees.errors?.['dateOfBirthHiringDate']">
@@ -72,7 +72,7 @@
                 formControlName="phone">
 
                 <div class="text-danger" *ngIf="addemployees.get('phone')?.errors && addemployees.get('phone')?.touched">
-                    <p *ngIf="addemployees.get('phone')?.getError('required')" class="mb-0">Phone ia Required</p>
+                    <p *ngIf="addemployees.get('phone')?.getError('required')" class="mb-0">Phone is Required</p>
                     <p *ngIf="addemployees.get('phone')?.getError('pattern')" class="mb-0">Phone must be 14 Numbers and start with 010 011 012</p>
                 </div>
 
@@ -87,7 +87,7 @@
                 <input type="radio" id="female" formControlName="gender" value="F">
 
                 <div class="text-danger" *ngIf="addemployees.get('gender')?.errors && addemployees.get('gender')?.touched">
-                    <p *ngIf="addemployees.get('gender')?.getError('required')" class="mb-0">Gender ia Required</p>
+                    <p *ngIf="addemployees.get('gender')?.getError('required')" class="mb-0">Gender is Required</p>
 
                 </div>
 
@@ -111,7 +111,7 @@
                 <input type="text"  class="form-control  w-75" name="department" formControlName="department" >
 
                 <div class="text-danger" *ngIf="addemployees.get('department')?.errors && addemployees.get('department')?.touched">
-                    <p *ngIf="addemployees.get('department')?.getError('required')" class="mb-0">Department ia Required</p>
+                    <p *ngIf="addemployees.get('department')?.getError('required')" class="mb-0">Department is Required</p>
                     <p *ngIf="addemployees.get('department')?.getError('minlength')" class="mb-0">Minlength is 5 letters</p>
                     <p *ngIf="addemployees.get('department')?.getError('maxlength')" class="mb-0">maxlength is 50 letters</p>
                   </div>
@@ -124,7 +124,7 @@
                 <input type="date"  class="form-control  w-75" name="hire" formControlName="hiringDate" >
 
                 <div class="text-danger" *ngIf="addemployees.get('hiringDate')?.errors && addemployees.get('hiringDate')?.touched">
-                    <p *ngIf="addemployees.get('hiringDate')?.getError('required')" class="mb-0">HiringDate ia Required</p>
+                    <p *ngIf="addemployees.get('hiringDate')?.getError('required')" class="mb-0">HiringDate is Required</p>
                 </div>
                 <div class="text-danger" *ngIf="addemployees.get('hiringDate')?.touched && addemployees.errors?.['dateOfBirthHiringDate']">
                     Date of Birth must be at least 20 years before Hiring Date.
