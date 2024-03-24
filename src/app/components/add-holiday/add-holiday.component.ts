@@ -115,7 +115,7 @@ export class AddHolidayComponent implements OnInit{
     else {
 
       const holidaydatainadd = { ...this.addHoliday.value,
-      dateOnTheCurrentYear:this.addHoliday.value.dateOnTheCurrentYear.split('-').reverse().join('-') }
+      dateOnTheCurrentYear:this.addHoliday.value.dateOnTheCurrentYear.split('-').reverse().join('-')}
       console.log(holidaydatainadd);
       
        

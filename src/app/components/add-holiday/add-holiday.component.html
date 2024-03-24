@@ -12,7 +12,7 @@
                 <input type="text"  class="form-control  w-75" name="name" formControlName="holidayName" >
 
                 <div class="text-danger" *ngIf="addHoliday.get('holidayName')?.errors && addHoliday.get('holidayName')?.touched">
-                    <p *ngIf="addHoliday.get('holidayName')?.getError('required')" class="mb-0">Name is Required</p>
+                    <p *ngIf="addHoliday.get('holidayName')?.getError('required')" class="mb-0">Holiday Name is Required</p>
                     <p *ngIf="addHoliday.get('holidayName')?.getError('minlength')" class="mb-0">Minlength is 3 letters</p>
                     <p *ngIf="addHoliday.get('holidayName')?.getError('maxlength')" class="mb-0">Maxlength is 20 letters</p>
                   </div>
