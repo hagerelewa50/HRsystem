@@ -117,6 +117,18 @@
     transform: rotate(-5deg);
 }
 
+.table-wrapper{
+  background-color: #435D7D;
+}
+
+.btn-success{
+  background-color: #5cb85c;
+}
+.btn-success:hover {
+  color: #fff;
+  background-color: #449d44;
+  border-color: #398439;}
+
  
   
 

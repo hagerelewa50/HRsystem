@@ -17,8 +17,10 @@ export class DepartmentService {
     return this._HttpClient.get(this.url) 
   }
 
-  
-
+  getDepartmentbysearchname(searchdeptvalue:string):Observable<any>
+{
+  return this._HttpClient.get(`${this.url}?Search=${searchdeptvalue}`)
+}
   addDepartment( workdays:number, data:IDepartment):Observable<any>{
     return this._HttpClient.post(`${this.url}/WorkDays?workDays=${workdays}` ,data)
   }

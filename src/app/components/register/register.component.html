@@ -55,19 +55,17 @@
                 <p *ngIf="registerform.get('password')?.getError('pattern')" class="mb-0">Password must be start Capital letter and length 20</p>
               </div>
 
-              <!-- <div class="mb-3">
-                <label for="rePassword" class="form-label">rePassword</label>
+              <div class="mb-3">
+                <label for="rePassword" class="form-label">Confirm Password</label>
                 <input type="password" 
                 class="form-control" 
                 id="rePassword" 
                 formControlName="rePassword">
               </div>
-              <div class="alert-danger alert py-2  mt-1" *ngIf="registerform.get('rePassword')?.errors && registerform.get('rePassword')?.touched">
-                <p *ngIf="registerform.get('rePassword')?.getError('required')" class="mb-0">repassword ia Required</p>
-                <p *ngIf="registerform.get('rePassword')?.getError('pattern')" class="mb-0">rePassword must be contain capital and small letters</p>
-              </div> -->
-
-             
+              <div class="alert-danger alert py-1  mt-1" *ngIf="registerform.get('rePassword')?.errors && registerform.get('rePassword')?.touched">
+                <p *ngIf="registerform.get('rePassword')?.getError('required')" class="mb-0">Confirm Password ia Required</p>
+                <p *ngIf="registerform.get('rePassword')?.touched && registerform.hasError('passwordMismatch')">   Password and Confirm password must be matched </p>
+              </div>
 
               <div class="alert alert-danger py-2" *ngIf="ErrMsg">{{ErrMsg}}</div>
 

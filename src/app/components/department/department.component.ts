@@ -1,6 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { Component, OnInit } from '@angular/core';;
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { IDepartment } from 'src/app/modules/idepartment';
@@ -12,12 +11,15 @@ import { DepartmentService } from 'src/app/shared/services/department.service';
   styleUrls: ['./department.component.css']
 })
 export class DepartmentComponent implements OnInit {
+  searchvalue:string ='';
 
   department:IDepartment[] =[] ;
   constructor(private _Router:Router , private _DepartmentService:DepartmentService,public toastr:ToastrService){}
 
   ngOnInit(): void {
    this.getallDepartment()
+  
+   
     
   }
   GoToaddDepart(){
@@ -26,18 +28,33 @@ export class DepartmentComponent implements OnInit {
 
 
   getallDepartment(){
-    this._DepartmentService.getAllDepartment().subscribe({
-      next:(Response:IDepartment[])=>{
-       this.department= Response
-       console.log(Response);
-       
-        
-      },
-      error:(err:HttpErrorResponse) =>{
-        console.log(err);
+    console.log("hhh");
+    if (this.searchvalue.trim() !== ""){
+     
+      
+      this._DepartmentService.getDepartmentbysearchname(this.searchvalue).subscribe({
+        next:(Response:IDepartment[])=>{
+         this.department= Response
+         console.log(Response);
+        },
+        error:(err:HttpErrorResponse) =>{
+          console.log(err);
+        }
+      })
 
-      }
-    })
+    }else{
+      this._DepartmentService.getAllDepartment().subscribe({
+        next:(Response:IDepartment[])=>{
+         this.department= Response
+         console.log(Response);
+        },
+        error:(err:HttpErrorResponse) =>{
+          console.log(err);
+        }
+      })
+
+    }
+   
   }
 
   editDepartment(departmentname:string){

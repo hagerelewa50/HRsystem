@@ -49,6 +49,7 @@ import { RouterModule } from '@angular/router';
     BrowserModule,
     AppRoutingModule,
     RouterModule,
+    FormsModule ,
     MatPaginatorModule,
     AppRoutingModule,
     ReactiveFormsModule,
