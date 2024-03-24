@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HolidaysService } from 'src/app/shared/services/holidays.service';
 import {ToastrService} from 'ngx-toastr'
 import { ActivatedRoute, Router } from '@angular/router';
+//import { dateOfBirthHiringDateValidator } from '../custom/cstomvalidation';
 
 
 @Component({
@@ -30,7 +31,7 @@ export class AddHolidayComponent implements OnInit{
         next: (holidayData: any) => {
           this.addHoliday.patchValue({
             holidayName: holidayData.holidayName,
-            holidayDate: this.formatDate(holidayData.holidayDate),
+            dateOnTheCurrentYear: this.formatDate(holidayData.dateOnTheCurrentYear),
             // nationalID: employeeData.nationalID,
             // dateOfBirth:this.formatDate(employeeData.dateOfBirth),
             // nationality:employeeData.nationality ,
@@ -44,7 +45,7 @@ export class AddHolidayComponent implements OnInit{
           });
           this.isEditing = true; 
         }, error: (err:any) => {
-          console.error(err);
+          console.error('Error fetching holiday data:', err);
         }
       });
     }
@@ -58,7 +59,7 @@ export class AddHolidayComponent implements OnInit{
   
   formatDate(date: string): string {
     const [year, month, day] = date.split('/');
-    return `${day}-${month}-${year}`;
+    return`${day}-${month}-${year}`;
   }
 
 
@@ -69,7 +70,7 @@ export class AddHolidayComponent implements OnInit{
  });
 }
 
- add() {
+ onSubmit() {
    
   if (this.addHoliday.valid) {
 
@@ -94,22 +95,22 @@ export class AddHolidayComponent implements OnInit{
       });
     }
 
-    // this._HolidayService.addHoliday(this.holidayDate,this.addHoliday.value).subscribe({
+    // this._HolidayService.addHoliday(this.dateOnTheCurrentYear,this.addHoliday.value).subscribe({
     //   next:(response)=> {
     //     if(response.message === "New holiday has been created"){
     //       this.showSuccess("added successfully",this.addHoliday.value.holidayName)
     //     }
     //     console.log(response);
         
-      },error:(err)=> {
-        this.ErrMsg =err.error.message
+    //   },error:(err)=> {
+    //     this.ErrMsg =err.error.message
         
-        console.log(err);
+    //     console.log(err);
         
         
-      },
-    })
-  
+    //   },
+    // })
+
 
     else {
 
@@ -135,9 +136,9 @@ export class AddHolidayComponent implements OnInit{
     }
   } else {
   
-  //   this.addHoliday.markAllAsTouched();
-  // }
-  // }
+    this.addHoliday.markAllAsTouched();
   }
+  }
+ }
 
 
