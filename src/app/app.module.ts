@@ -52,6 +52,7 @@ import { AddHolidayComponent } from './components/add-holiday/add-holiday.compon
     BrowserModule,
     AppRoutingModule,
     RouterModule,
+    FormsModule ,
     MatPaginatorModule,
     AppRoutingModule,
     ReactiveFormsModule,

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IEmployee } from 'src/app/modules/iemployee';
@@ -15,7 +15,11 @@ export class EmployeeService {
 
 
   getAllEmployee(pageIndex: number, pageSize: number):Observable<any>{
-    return this._HttpClient.get(`${this.url}?PageSize=${pageSize}&PageIndex=${pageIndex}`) 
+    return this._HttpClient.get(`${this.url}?PageSize=${pageSize}&PageIndex=${pageIndex}` ) 
+  }
+
+  getemployeebysearchname(searchvalue:string, pageSize: number,pageIndex: number):Observable<any>{
+    return this._HttpClient.get(`${this.url}?Search=${searchvalue}&PageSize=${pageSize}&PageIndex=${pageIndex}`)
   }
 
   getEmployeeById(nationalId:string):Observable<any>{

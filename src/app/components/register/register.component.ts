@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthserviceService } from 'src/app/shared/services/authservice.service';
+import { passwordMatchValidator } from '../custom/passwordMatchValidator ';
 
 @Component({
   selector: 'app-register',
@@ -17,8 +18,9 @@ export class RegisterComponent {
     fullName:new FormControl(null,[Validators.required , Validators.minLength(3) , Validators.maxLength(50)]),
     userName:new FormControl(null,[Validators.required , Validators.minLength(3) , Validators.maxLength(20)]),
     email:new FormControl(null,[Validators.required , Validators.email]),
-    password:new FormControl(null,[Validators.required , Validators.pattern(/^[A-Z][a-z0-9]{6,20}$/)])
-  })
+    password:new FormControl(null,[Validators.required , Validators.pattern(/^[A-Z][a-z0-9]{6,20}$/)]),
+    rePassword:new FormControl(null,[Validators.required , Validators.pattern(/^[A-Z][a-z0-9]{6,20}$/)])
+  },{ validators: passwordMatchValidator })
 
   handleSubmit():void{
     console.log(this.registerform.value);

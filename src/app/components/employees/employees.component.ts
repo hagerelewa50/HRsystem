@@ -15,6 +15,7 @@ export class EmployeesComponent implements OnInit {
   pageIndex: number = 1;
   pageSize: number = 10;
   totalItems: number = 0;
+  searchTerm: string = ''; 
   // paginatedEmployees: IEmployee[] = [];
   // pageIndex: number = 1;
   // pageSize: number = 10;
@@ -36,58 +37,48 @@ export class EmployeesComponent implements OnInit {
     this._Router.navigate(["/editemloyee"],{queryParams: {ID:nationalId}})
 
   }
-
-  getAllEmployee(){
-  this._EmployeeService.getAllEmployee(this.pageIndex, this.pageSize).subscribe({
-  next:(response) =>{
-   this.employee = response.data
-   this.totalItems = response.count
-    console.log(this.totalItems);
-    console.log(response);
-    
-    
-  },
-  error:(err) =>{
-    console.log(err);
-
-  },
-})
+  searchEmployee(): void {
+    this.pageIndex = 1; 
+    this.getAllEmployee();
   }
 
-// getAllEmployee() {
-//   this._EmployeeService.getAllEmployee(this.pageIndex, this.pageSize).subscribe({
-//       next: (response) => {
-//           this.employee = response.data;
-//           this.totalItems = response.count;
-//           this.totalPages = Math.ceil(this.totalItems / this.pageSize);
-//           this.updatePaginatedItems();
-//       },
-//       error: (err) => {
-//           console.log(err);
-//       }
-//   });
-// }
+  getAllEmployee(){
 
-// updatePaginatedItems() {
-//   const startIndex = (this.pageIndex - 1) * this.pageSize;
-//   const endIndex = Math.min(startIndex + this.pageSize, this.totalItems);
-//   this.paginatedEmployees = this.employee.slice(startIndex, endIndex);
-//   this.getAllEmployee()
-// }
+    if(this.searchTerm.trim() !== ""){
+      this._EmployeeService.getemployeebysearchname(this.searchTerm, this.pageSize,this.pageIndex).subscribe({
+        next:(response) =>{
+         this.employee = response.data
+         this.totalItems = response.count
+          console.log(this.totalItems);
+          console.log(response);
+          
+        },
+        error:(err) =>{
+          console.log(err);
+      
+        },
+      })
+      
 
-// nextPage() {
-//   if (this.pageIndex < this.totalPages) {
-//       this.pageIndex++;
-//       this.updatePaginatedItems();
-//   }
-// }
+    } else{
 
-// previousPage() {
-//   if (this.pageIndex > 1) {
-//       this.pageIndex--;
-//       this.updatePaginatedItems();
-//   }
-// }
+      this._EmployeeService.getAllEmployee(this.pageIndex, this.pageSize).subscribe({
+        next:(response) =>{
+         this.employee = response.data
+         this.totalItems = response.count
+          console.log(this.totalItems);
+          console.log(response);
+          
+          
+        },
+        error:(err) =>{
+          console.log(err);
+      
+        },
+      })
+    }
+
+  }
 
 
   deletedemployee(Id:string ,name:string){
@@ -97,8 +88,6 @@ export class EmployeesComponent implements OnInit {
       this.toastr.error( "deleted" ,name, {
         timeOut: 3000,
       }) 
-
-      
       this.getAllEmployee()
     })
 

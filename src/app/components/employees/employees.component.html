@@ -1,10 +1,16 @@
-<h3 class="fw-bold " >EMPLOYEES <i class="fa-solid fa-users"></i></h3>
 
-<div class="d-flex justify-content-end mb-5">
-    <button  (click)="GoToEmloyee()" class="btn btn-dark "><i class="fa-solid fa-plus"></i> Add Employee</button>
+
+
+
+<input type="text"   placeholder="Search ....." class="form-control w-50 mx-auto my-4"  [(ngModel)]="searchTerm" (input)="searchEmployee()">
+<div class=" table-wrapper text-white d-flex justify-content-between align-items-center p-3 rounded-2">
+    <h3 class="fw-bold " >EMPLOYEES <i class="fa-solid fa-users"></i></h3>
+    <div class="d-flex justify-content-end ">
+        <button  (click)="GoToEmloyee()" class="btn btn-success "><i class="fa-solid fa-plus"></i> Add Employee</button>
+    </div>
+
+
 </div>
-
-<input type="text"   placeholder="Search ....." class="form-control w-50 mx-auto my-4">
 <div class="table-responsive">
     <table class="table table-striped text-center ">
         <thead>
@@ -36,7 +42,7 @@
                 <td class="small">{{e.salary}}</td>
                 <td class="small ">
                     <div class="d-flex justify-content-evenly align-items-center ">
-                        <div class="d-inline-block mb-1 "  (click)="editEmployee(e.nationalID)">
+                        <div class="d-inline-block mb-1 " (click)="editEmployee(e.nationalID)">
                             <i class="fa-solid fa-pen-to-square me-3 text-info fs-5 cursor-pointer me-3 icon-edit "></i>
                             </div>
                             <div class="con-icon d-inline-block cursor-pointer ms-4"  (click)="deletedemployee(e.nationalID,e.employeeName)">
