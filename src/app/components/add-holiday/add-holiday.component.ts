@@ -4,7 +4,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HolidaysService } from 'src/app/shared/services/holidays.service';
 import {ToastrService} from 'ngx-toastr'
 import { ActivatedRoute, Router } from '@angular/router';
-//import { dateOfBirthHiringDateValidator } from '../custom/cstomvalidation';
 
 
 @Component({
@@ -32,20 +31,12 @@ export class AddHolidayComponent implements OnInit{
           this.addHoliday.patchValue({
             holidayName: holidayData.holidayName,
             holidayDate: this.formatDate(holidayData.holidayDate),
-            // nationalID: employeeData.nationalID,
-            // dateOfBirth:this.formatDate(employeeData.dateOfBirth),
-            // nationality:employeeData.nationality ,
-            // address: employeeData.address,
-            // gender: employeeData.gender,
-            // phone: employeeData.phone,
-            // vacationsCredit:employeeData.vacationsCredit,
-            // salary: employeeData.salary,
-            // hiringDate:this.formatDate( employeeData.hiringDate)
+        
             
           });
           this.isEditing = true; 
         }, error: (err:any) => {
-          console.error('Error fetching holiday data:', err);
+          console.error(err);
         }
       });
     }
@@ -68,7 +59,7 @@ export class AddHolidayComponent implements OnInit{
  });
 }
 
- onSubmit() {
+ add() {
    
   if (this.addHoliday.valid) {
 
@@ -91,42 +82,43 @@ export class AddHolidayComponent implements OnInit{
       });
     }
 
-    // this._HolidayService.addHoliday(this.holidayDate,this.addHoliday.value).subscribe({
-    //   next:(response)=> {
-    //     if(response.message === "New holiday has been created"){
-    //       this.showSuccess("added successfully",this.addHoliday.value.holidayName)
-    //     }
-    //     console.log(response);
-        
-    //   },error:(err)=> {
-    //     this.ErrMsg =err.error.message
-        
-    //     console.log(err);
-        
-        
-    //   },
-    // })
-
-
-    else {
-       
-      this._HolidayService.addHoliday(this.holidayDate,holidayData).subscribe({
-        next: (response: HttpErrorResponse) => {
-          if (response.message === "New Holiday has been created") {
-            this.showSuccess("Added successfully", this.addHoliday.value.employeeName);
-          }
-        },
-        error: (err: HttpErrorResponse) => {
-          this.ErrMsg = err.error.message;
-          console.log( err);
+    this._HolidayService.addHoliday(this.holidayDate,this.addHoliday.value).subscribe({
+      next:(response)=> {
+        if(response.message === "New holiday has been created"){
+          this.showSuccess("added successfully",this.addHoliday.value.holidayName)
         }
-      });
-    }
-  } else {
+        console.log(response);
+        
+      },error:(err)=> {
+        this.ErrMsg =err.error.message
+        
+        console.log(err);
+        
+        
+      },
+    })
+
+
+  //   else {
+       
+  //     this._HolidayService.addHoliday(this.holidayDate,holidayData).subscribe({
+  //       next: (response: HttpErrorResponse) => {
+  //         if (response.message === "New Holiday has been created") {
+  //           this.showSuccess("Added successfully", this.addHoliday.value.holidayName);
+  //         }
+  //       },
+  //       error: (err: HttpErrorResponse) => {
+  //         this.ErrMsg = err.error.message;
+  //         console.log( err);
+  //       }
+  //     });
+  //   }
+  // } else {
   
-    this.addHoliday.markAllAsTouched();
-  }
+  //   this.addHoliday.markAllAsTouched();
+  // }
+  // }
   }
  }
-
+}
 

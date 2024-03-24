@@ -2,7 +2,7 @@
 <h3>{{isEditing?"Update Holiday ":"Add Holiday"}}</h3>
 
 
-   <form  class="mt-4" [formGroup]="addHoliday"  (ngSubmit)="onSubmit()">
+   <form  class="mt-4" [formGroup]="addHoliday"  (ngSubmit)="add()">
     <div class="row  gy-4">
         <div class="col-lg-6">
             <!-- <h4>Personal Info</h4> -->
@@ -21,24 +21,17 @@
 
             <div class="mb-3">
                 <label class="col-3" for="birth">Holiday Date: </label>
-                <input type="date"  class="form-control  w-75" name="birth" formControlName="dateOfBirth" >
+                <input type="date"  class="form-control  w-75" name="birth" formControlName="holidayDate" >
 
                 <div class="text-danger" *ngIf="addHoliday.get('holidayDate')?.errors && addHoliday.get('holidayDate')?.touched">
                     <p *ngIf="addHoliday.get('holidayDate')?.getError('required')" class="mb-0">Holiday Date is Required</p>
                   
                   </div>
                   
-            </div>
 
-
-           
-    
-          
-    
-           
             
-    
-    
+                  
+            </div>
           
     
         </div>

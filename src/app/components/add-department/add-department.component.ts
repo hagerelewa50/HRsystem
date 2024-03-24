@@ -38,8 +38,8 @@ export class AddDepartmentComponent implements OnInit{
           });
           this.isEditing = true;
         },
-        error: (err:any) => {
-          console.log( err);
+        error: (ErrMsg:any) => {
+          console.log( ErrMsg);
         }
       });
     }
@@ -101,8 +101,8 @@ export class AddDepartmentComponent implements OnInit{
             this.showSuccess(response.message, this.addDepartment.value.departmentName);
           }
         },
-        error: (err: any) => {
-          console.log( err);
+        error: (ErrMsg: any) => {
+          console.log( ErrMsg);
         }
       });
     }
@@ -117,7 +117,7 @@ export class AddDepartmentComponent implements OnInit{
       },error:(err)=> {
         this.ErrMsg =err.error.message
         
-        console.log(err);
+        console.log(this.ErrMsg);
         
         
       },
