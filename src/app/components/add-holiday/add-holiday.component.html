@@ -20,11 +20,11 @@
            
 
             <div class="mb-3">
-                <label class="col-3" for="birth">Holiday Date: </label>
-                <input type="date"  class="form-control  w-75" name="birth" formControlName="dateOfBirth" >
+                <label class="col-3" for="dateOnTheCurrentYear">Holiday Date: </label>
+                <input type="date"  class="form-control  w-75" name="dateOnTheCurrentYear" formControlName="dateOnTheCurrentYear" >
 
-                <div class="text-danger" *ngIf="addHoliday.get('holidayDate')?.errors && addHoliday.get('holidayDate')?.touched">
-                    <p *ngIf="addHoliday.get('holidayDate')?.getError('required')" class="mb-0">Holiday Date is Required</p>
+                <div class="text-danger" *ngIf="addHoliday.get('dateOnTheCurrentYear')?.errors && addHoliday.get('dateOnTheCurrentYear')?.touched">
+                    <p *ngIf="addHoliday.get('dateOnTheCurrentYear')?.getError('required')" class="mb-0">Holiday Date is Required</p>
                   
                   </div>
                   
