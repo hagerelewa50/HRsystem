@@ -39,10 +39,6 @@ export class VacationComponent implements OnInit {
     })
   }
 
-  formatDate(date: string): string {
-    const [year, month, day] = date.split('-');
-    return `${day}-${month}-${year}`;
-  }
 
   editHoliday(holidayDate:string){
     this._Router.navigate(["/editHoliday"],{queryParams: {ID:holidayDate}})
