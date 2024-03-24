@@ -38,17 +38,22 @@ export class VacationComponent implements OnInit {
       }
     })
   }
+  formatDate(date: string): string {
+    const [year, month, day] = date.split('/');
+    return `${year}-${month}-${day}`;
+  }
 
-
-  editHoliday(holidayDate:string){
-    this._Router.navigate(["/editHoliday"],{queryParams: {ID:holidayDate}})
+  editHoliday(holidayDate:string ){
+    this._Router.navigate(["/editHoliday"],{queryParams: {ID:this.formatDate(holidayDate)}})
   }
 
 
-  deleteHoliday(holidayDate:string){
-    this._HolidaysService.deleteHoliday(holidayDate).subscribe(()=>{
+  deleteHoliday(holidayDate:string ,holidayname:string){
+   console.log();
+ 
+    this._HolidaysService.deleteHoliday(this.formatDate(holidayDate)).subscribe(()=>{
 
-      this.toastr.error( "deleted" ,holidayDate, {
+      this.toastr.error( "deleted" ,holidayname, {
         timeOut: 3000,
       })  
       

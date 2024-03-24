@@ -16,8 +16,8 @@ export class HolidaysService {
   getAllHoliday():Observable<any>{
     return this._HttpClient.get(this.url) 
   }
-  addHoliday( holidayDate:string, data:IHolidays):Observable<any>{
-    return this._HttpClient.post(`${this.url}/HolidayDate?holidayDate=${holidayDate}` ,data)
+  addHoliday( data:IHolidays):Observable<any>{
+    return this._HttpClient.post(this.url ,data)
   }
   getHolidayByDate(holidayDate:string):Observable<any>{
     return this._HttpClient.get(`${this.url}/${holidayDate}`)

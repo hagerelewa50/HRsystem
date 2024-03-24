@@ -1,4 +1,4 @@
-<h3>Salaries of Employees</h3>
+
 
 <div class="container">
     <div class=" row  align-items-center">
@@ -47,6 +47,11 @@
 </div>
 
 
+<div class=" table-wrapper text-white d-flex justify-content-center align-items-center p-3 rounded-2">
+    <h3 class="fw-bold " >SALARIES OF EMPLOYEES </h3>
+</div>
+
+
 <div class="table-responsive">
     <table class="table table-striped text-center mt-4">
         <thead class="head-table">
@@ -76,3 +81,4 @@
 
     </table>
 </div>
+<mat-paginator [length]="totalItems" [pageSize]="pageSize" (page)="onPageChange($event)"></mat-paginator>
