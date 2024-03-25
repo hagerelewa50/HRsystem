@@ -1,0 +1,34 @@
+
+
+
+
+<div class=" table-wrapper text-white d-flex justify-content-center align-items-center p-3 rounded-2 mt-2">
+    <h3 class="">Attend Days for {{empname}} </h3>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped text-center">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Attendence</th>
+                <th>Leave</th>
+                <th>Bouns</th>
+                <th>Discount</th>
+
+            </tr>
+         
+        </thead>
+        <tbody>
+            <tr *ngFor="let a of attentempsalary">
+                <td>{{a.date}}</td>
+                <td>{{a.attendance}}</td>
+                <td>{{a.leave}}</td>
+                <td>{{a.bonus}}</td>
+                <td>{{a.discount}}</td>
+            </tr>
+
+        </tbody>
+      
+    </table>
+</div>

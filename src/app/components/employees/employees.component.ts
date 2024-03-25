@@ -13,7 +13,7 @@ import { EmployeeService } from 'src/app/shared/services/employee.service';
 export class EmployeesComponent implements OnInit {
   employee:IEmployee[]=[];
   pageIndex: number = 1;
-  pageSize: number = 10;
+  pageSize: number = 5;
   totalItems: number = 0;
   searchTerm: string = ''; 
   // paginatedEmployees: IEmployee[] = [];

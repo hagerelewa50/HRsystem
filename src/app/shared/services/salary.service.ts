@@ -8,10 +8,21 @@ import { Observable } from 'rxjs';
 export class SalaryService {
 
   constructor(private  _HttpClient:HttpClient) { }
- 
+ url="http://localhost:5234/api/Salaries"
 
-  getSalary(pageSize: number, pageIndex: number):Observable<any>{
-    return this._HttpClient.get(`http://localhost:5234/api/Salaries?StartMonth=1&Year=2024&PageSize=${pageSize}&PageIndex=${pageIndex}`)
+  getSalary( month:number, year:number,  pageSize: number, pageIndex: number):Observable<any>{
+    return this._HttpClient.get(`${this.url}?StartMonth=${month}&Year=${year}&PageSize=${pageSize}&PageIndex=${pageIndex}`)
   }
-  
+
+  getsalarybyname(month:number, year:number,name:string ,  pageSize: number, pageIndex: number):Observable<any>{
+    return this._HttpClient.get(`${this.url}?StartMonth=${month}&Year=${year}&Search=${name}&PageSize=${pageSize}&PageIndex=${pageIndex}`)
+  }
+
+  attendsempwithsalary(id:string,month:number, year:number):Observable<any>{
+    return  this._HttpClient.get(`${this.url}/Attend?NationalId=${id}&StartMonth=${month}&Year=${year}`)
+  }
+
+  latesempwithsalary(id:string,month:number, year:number):Observable<any>{
+    return  this._HttpClient.get(`${this.url}/late?NationalId=${id}&StartMonth=${month}&Year=${year}`)
+  }
 }

@@ -14,6 +14,8 @@ import { AddEmployeeComponent } from './components/add-employee/add-employee.com
 import { AddDepartmentComponent } from './components/add-department/add-department.component';
 import { AddHolidayComponent } from './components/add-holiday/add-holiday.component';
 import { authGuard } from './shared/guard/auth.guard';
+import { AttendemployeesalaryComponent } from './components/attendemployeesalary/attendemployeesalary.component';
+import { LateempsalaryComponent } from './components/lateempsalary/lateempsalary.component';
 
 const routes: Routes = [
   { path:"",
@@ -32,6 +34,8 @@ const routes: Routes = [
     {path:"addHoliday",component:AddHolidayComponent},
     {path:"editHoliday",component:AddHolidayComponent},
     {path:"publicsetting", component:PublicSettingsComponent},
+    {path:"attendempsalary", component:AttendemployeesalaryComponent},
+    {path:"lateempsalary", component:LateempsalaryComponent},
   ] },
 
   { path:"",

@@ -3,7 +3,7 @@
 <div class="container">
     <div class=" row  align-items-center">
         <div class="col-lg-4">
-            <input type="text"   placeholder="Search by Name of Employee ....." class="form-control w-100 mx-auto my-4" >
+            <input type="text"   placeholder="Search by Name of Employee ....." class="form-control w-100 mx-auto my-4"[(ngModel)]="selectsearchname"  >
         </div>
 
         <div class="col-lg-8">
@@ -11,7 +11,7 @@
                 <div class="col-lg-8 col-md-8 d-flex justify-content-between align-items-center ">
                  <div class="d-flex justify-content-center align-items-center w-50 me-2">
                      <label for="month">Month </label>
-                 <select id="month"  class=" ms-2 form-control py-1  w-100">
+                 <select id="month"  class=" ms-2 form-control py-1  w-100"  [(ngModel)]="selectedMonth" [ngModelOptions]="{ standalone: true }">
                      <option value="1">January</option>
                      <option value="2">February</option>
                      <option value="3">March</option>
@@ -29,16 +29,19 @@
                  
                  <div class="d-flex justify-content-center align-items-center w-50 ">
                      <label for="year">Year </label>
-                 <input type="number" id="year" min="2010" max="2030" step="1"  class="mx-2 form-control w-75" >
+                 <input type="number" id="year" min="2010" max="2030" step="1"  class="mx-2 form-control w-75" [(ngModel)]="enteredYear" [ngModelOptions]="{ standalone: true }" >
                  </div>
              
-                 <button class="btn btn-warning" type="button">Search</button>  
+                 <button class="btn btn-warning" type="button" (click)="search()">Search</button>  
                 </div>
                
              
              </form>
+
             
         </div>
+        <div class="alert alert-danger py-2 col-lg-4 col-md-5 col-sm-7 mx-auto mt-2" *ngIf="ErrMsg">{{ErrMsg}}</div>
+
     
     
     
@@ -47,7 +50,7 @@
 </div>
 
 
-<div class=" table-wrapper text-white d-flex justify-content-center align-items-center p-3 rounded-2">
+<div class=" table-wrapper text-white d-flex justify-content-center align-items-center p-3 rounded-2 mt-2">
     <h3 class="fw-bold " >SALARIES OF EMPLOYEES </h3>
 </div>
 
@@ -70,10 +73,10 @@
                 <td>{{s.employeeName}}</td>
                 <td>{{s.departmentName}}</td>
                 <td>{{s.absenceDays}}</td>
-                <td>{{s.attendDays}}</td>
+                <td  class="cursor-pointer" (click)="goToAttendempsalary(s.nationalID ,s.employeeName)">{{s.attendDays}}</td>
                 <td>{{s.basicSalary}}</td>
                 <td>{{s.overallBonusHours}}</td>
-                <td>{{s.overallDiscountHours}}</td>
+                <td class="cursor-pointer" (click)="goToLateempsalary(s.nationalID ,s.employeeName)">{{s.overallDiscountHours}}</td>
                 <td>{{s.overallDiscount}}</td>
                 <td>{{s.netSalary}}</td>
             </tr>
