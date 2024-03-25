@@ -59,7 +59,7 @@ export class AddHolidayComponent implements OnInit{
   
   formatDate(date: string): string {
     const [year, month, day] = date.split('/');
-    return `${day}-${month}-${year}`;
+    return`${day}-${month}-${year}`;
   }
 
 
@@ -140,3 +140,5 @@ export class AddHolidayComponent implements OnInit{
   }
   }
  }
+
+

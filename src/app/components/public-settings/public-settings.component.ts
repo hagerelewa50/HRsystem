@@ -12,10 +12,13 @@ export class PublicSettingsComponent implements OnInit {
   pageIndex: number = 1;
   pageSize: number = 10;
   totalItems: number = 0;
+  monthvalue:number = 1;
 constructor(private _SalaryService:SalaryService){}
 
 ngOnInit(): void {
  this.getallsalary()
+ console.log(this.monthvalue);
+ 
 }
 onPageChange(event: any): void {
   this.pageIndex = event.pageIndex + 1; 
