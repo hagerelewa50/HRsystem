@@ -25,6 +25,7 @@ import { CommonModule } from '@angular/common';
 import { AddDepartmentComponent } from './components/add-department/add-department.component';
 import { RouterModule } from '@angular/router';
 import { AddHolidayComponent } from './components/add-holiday/add-holiday.component';
+import { AddAttendanceComponent } from './components/add-attendance/add-attendance.component';
 import { AttendemployeesalaryComponent } from './components/attendemployeesalary/attendemployeesalary.component';
 import { AbsentemployeesalaryComponent } from './components/absentemployeesalary/absentemployeesalary.component';
 import { LateemployeesalaryComponent } from './components/lateemployeesalary/lateemployeesalary.component';
@@ -50,6 +51,8 @@ import { LateempsalaryComponent } from './components/lateempsalary/lateempsalary
     AuthlayoutComponent,
     AddEmployeeComponent,
     AddDepartmentComponent,
+    AddHolidayComponent,
+    AddAttendanceComponent
     AddHolidayComponent,
     AttendemployeesalaryComponent,
     AbsentemployeesalaryComponent,
