@@ -13,6 +13,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
 import { AddDepartmentComponent } from './components/add-department/add-department.component';
 import { AddHolidayComponent } from './components/add-holiday/add-holiday.component';
+import { AddAttendanceComponent } from './components/add-attendance/add-attendance.component';
 import { authGuard } from './shared/guard/auth.guard';
 
 const routes: Routes = [
@@ -31,6 +32,8 @@ const routes: Routes = [
     {path:"vacation", component:VacationComponent},
     {path:"addHoliday",component:AddHolidayComponent},
     {path:"editHoliday",component:AddHolidayComponent},
+    {path:"addAttendance",component:AddAttendanceComponent},
+    {path:"editAttendance",component:AddAttendanceComponent},
     {path:"publicsetting", component:PublicSettingsComponent},
   ] },
 

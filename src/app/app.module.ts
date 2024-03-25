@@ -25,6 +25,7 @@ import { CommonModule } from '@angular/common';
 import { AddDepartmentComponent } from './components/add-department/add-department.component';
 import { RouterModule } from '@angular/router';
 import { AddHolidayComponent } from './components/add-holiday/add-holiday.component';
+import { AddAttendanceComponent } from './components/add-attendance/add-attendance.component';
 // import {  MatPaginatorModule } from '@angular/material';
 
 
@@ -46,7 +47,8 @@ import { AddHolidayComponent } from './components/add-holiday/add-holiday.compon
     AuthlayoutComponent,
     AddEmployeeComponent,
     AddDepartmentComponent,
-    AddHolidayComponent
+    AddHolidayComponent,
+    AddAttendanceComponent
   ],
   imports: [
     BrowserModule,
